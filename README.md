@@ -16,6 +16,7 @@ A small Python3 script for enabling a faster local setup for working with proble
  
  # How
  In your terminal run, were the argument is the url of a open.kattis.com problem:
+ 
  *python3 kattis_helper.py https://open.kattis.com/problems/listgame*
  
 # Requirements:
