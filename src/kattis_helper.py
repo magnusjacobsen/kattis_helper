@@ -57,13 +57,19 @@ def list_sample_files(problem_id):
     return list_of_filenames
 
 def create_solution_file(problem_id, problem_url, list_of_samples):
-    filename = "solver.py"
+    filename = "solver.rs"
     print(f"Creating solution file: {problem_id}/{filename}")
     f = open(f"{problem_id}/{filename}", "x")
-    f.write("import sys\n")
-    f.write(f"# Solution for Kattis problem {problem_id}\n# Problem url: {problem_url}\n\n# Sample-data")
+    f.write(f"// Solution for Kattis problem: {problem_id}\n// Problem url: {problem_url}\n\n// Sample-data\n")
     for filename in list_of_samples:
-        f.write(f"#{filename}")
+        f.write(f"// * {filename}\n")
+
+    f.write("\nuse std::io::{self, BufRead};\n")
+    f.write("use std::str::FromStr;\n\n")
+    f.write("fn main() {\n")
+    f.write("  let stdin = io::stdin();\n")
+    f.write("  let mut iter = stdin.lock().lines();\n")
+    f.write("}")
     f.close()
 
 def main():
